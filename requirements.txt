@@ -1,0 +1,24 @@
+# NanoBoost Requirements
+# Core dependencies for running notebooks and scripts
+
+# Data manipulation and analysis
+numpy>=1.21.0
+pandas>=1.3.0
+scipy>=1.7.0
+
+# Machine learning
+scikit-learn>=1.0.0
+
+# Wavelet transforms
+pywt>=1.1.1
+
+# Visualization
+matplotlib>=3.4.0
+seaborn>=0.11.0
+
+# Jupyter notebooks
+jupyter>=1.0.0
+ipython>=7.0.0
+
+# Progress bars and utilities
+tqdm>=4.62.0

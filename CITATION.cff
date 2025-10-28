@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+type: software
+title: "NanoBoost: A Wavelet Transform-Enhanced Machine Learning Algorithm for Next-Generation Nanopore Multiplexing"
+authors:
+  - family-names: Hart
+    given-names: Joseph
+    alias: joehart2001
+repository-code: "https://github.com/joehart2001/nanoboost"
+url: "https://github.com/joehart2001/nanoboost"
+license: MIT
+year: 2025
+abstract: >
+  NanoBoost is a machine learning algorithm that leverages wavelet transform
+  techniques to enhance nanopore multiplexing capabilities. This repository
+  contains the code, notebooks, and scripts used to build and evaluate the
+  NanoBoost model as described in the accompanying research publication.
+keywords:
+  - nanopore
+  - machine learning
+  - wavelet transform
+  - multiplexing
+  - bioinformatics
