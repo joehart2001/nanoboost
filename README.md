@@ -12,11 +12,7 @@ NanoBoost is a machine learning algorithm that leverages wavelet transform techn
 
 This repository is organized to facilitate reproducibility and understanding of the NanoBoost methodology:
 
-- `notebooks/` - Jupyter notebooks demonstrating the analysis and model building process
 - `scripts/` - Python scripts for data processing and model training
-- `data/` - Sample data and datasets (if applicable)
-- `models/` - Trained models and model configurations
-- `results/` - Output results and figures
 
 ## Getting Started
 
@@ -38,7 +34,7 @@ pip install -r requirements.txt
 
 ## Usage
 
-Detailed usage instructions and examples can be found in the notebooks provided in the `notebooks/` directory.
+More detailed usage instructions and examples can be found in the scripts provided in the `scripts/` directory.
 
 ## Citation
 
