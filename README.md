@@ -1,5 +1,5 @@
 # NanoBoost
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17517843.svg)](https://doi.org/10.5281/zenodo.17517843)
+[![DOI][https://zenodo.org/badge/DOI/10.5281/zenodo.17517843.svg][https://doi.org/10.5281/zenodo.17517843]
 
 
 **A Wavelet Transform-Enhanced Machine Learning Algorithm for Next-Generation Nanopore Multiplexing**
