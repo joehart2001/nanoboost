@@ -13,7 +13,7 @@ NanoBoost is a machine learning algorithm that leverages wavelet transform techn
 
 ## Repository Structure
 
-This repository is organized to facilitate reproducibility and understanding of the NanoBoost methodology:
+This repository is organized to facilitate reproducibility and understanding of the NanoBoost methodology: 
 
 - `scripts/` - Python scripts for data processing and model training
 
