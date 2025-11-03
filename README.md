@@ -40,7 +40,7 @@ More detailed usage instructions and examples can be found in the scripts provid
 
 ## Citation
 
-If you use this code or methodology in your research, please cite:
+If you use this code or methodology in your research, please cite this repository (paper details to be added upon publication). Here is a suggested BibTeX entry:
 
 ```bibtex
 @software{nanoboost,
