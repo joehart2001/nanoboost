@@ -11,15 +11,6 @@ Scripts provided here can be used for:
 - Model training and hyperparameter optimization
 - Batch processing and analysis
 
-## Usage
-
-Most scripts can be run from the command line:
-
-```bash
-python script_name.py --help
-```
-
-This will display available options and parameters for each script.
 
 ## Integration
 
