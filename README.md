@@ -9,15 +9,21 @@ NanoBoost is a machine learning pipeline combining XGBoost with a novel event-sp
 ## Installation
 
 ```bash
-git clone https://github.com/joehart2001/nanoboost.git
-cd nanoboost
-pip install -e .
+pip install nanoboost
 ```
 
 For unsupervised learning and plotting dependencies:
 
 ```bash
-pip install -e ".[full]"
+pip install "nanoboost[full]"
+```
+
+To install from source:
+
+```bash
+git clone https://github.com/joehart2001/nanoboost.git
+cd nanoboost
+pip install -e .
 ```
 
 ## Usage
