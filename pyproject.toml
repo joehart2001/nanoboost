@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nanoboost"
+version = "1.0.0"
+description = "Wavelet transform-enhanced machine learning for nanopore sensing"
+readme = "README.md"
+license = {file = "LICENSE"}
+requires-python = ">=3.8"
+dependencies = [
+    "numpy>=1.21.0",
+    "pandas>=1.3.0",
+    "scipy>=1.7.0",
+    "scikit-learn>=1.0.0",
+    "PyWavelets>=1.1.1",
+    "pyabf",
+    "xgboost",
+    "imbalanced-learn",
+    "scikit-optimize",
+    "typer>=0.9.0",
+    "pyyaml",
+    "tqdm>=4.62.0",
+]
+
+[project.optional-dependencies]
+full = [
+    "torch",
+    "tslearn",
+    "matplotlib>=3.4.0",
+    "seaborn>=0.11.0",
+]
+dev = [
+    "pytest>=7.0",
+]
+
+[project.scripts]
+nanoboost = "nanoboost.cli.main:app"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["nanoboost*"]

@@ -4,7 +4,7 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
 from xgboost import XGBClassifier
 from sklearn.svm import SVC
-from sklearn.pipeline import Pipeline
+from imblearn.pipeline import Pipeline
 from sklearn.preprocessing import RobustScaler
 from imblearn.over_sampling import SMOTE
 from sklearn.model_selection import RandomizedSearchCV, GridSearchCV

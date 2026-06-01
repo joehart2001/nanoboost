@@ -1,4 +1,5 @@
 import numpy as np
+from tqdm import tqdm
 from nanoboost.scripts.data_preprocessing.baseline_correction import importABF_movingavg
 from nanoboost.scripts.data_preprocessing.peak_finder import define_threshold, find_peaks_troughs
 from nanoboost.scripts.data_preprocessing.event_isolation import event_isolation, event_isolation_NRNS, pad_event
@@ -59,7 +60,7 @@ def DWT_and_features_thresh_trace(event_time, event_data, mean_noise, sd_thresho
     """
     
     # DWT
-    DWT_rec, all_coeffs = zip(*[wavelet_transform_func(signal, wavelet=wavelet, thresh = threshold) for signal in event_data])
+    DWT_rec, all_coeffs = zip(*[wavelet_transform_func(signal, wavelet=wavelet, thresh = threshold) for signal in tqdm(event_data, desc="DWT", unit="event", leave=False)])
     DWT_rec, all_coeffs = list(DWT_rec), list(all_coeffs)
 
     # trace peak and optionally trough
@@ -72,7 +73,8 @@ def DWT_and_features_thresh_trace(event_time, event_data, mean_noise, sd_thresho
         event_time_padded, DWT_rec_padded = pad_event(event_time, DWT_rec, mean_noise, custom_length=501)
     else:
         event_time_padded, DWT_rec_padded = pad_event(event_time, DWT_rec, mean_noise, custom_length=1000)
-    features_df, features_list = find_features(event_time_padded, DWT_rec_padded, mean_noise, all_coeffs, sd_threshold, sd_threshold_lower)
+    lower_thresh = sd_threshold_lower if sd_threshold_lower is not None else -np.inf
+    features_df, features_list = find_features(event_time_padded, DWT_rec_padded, mean_noise, all_coeffs, sd_threshold, lower_thresh)
     
     # assign label 0 for 5nm or NS, 1 for 10nm or NR
     if DNA:

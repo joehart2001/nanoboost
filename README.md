@@ -4,39 +4,78 @@
 
 **A Wavelet Transform-Enhanced Machine Learning Algorithm for Next-Generation Nanopore Multiplexing**
 
-This repository contains the code, notebooks, and scripts accompanying the NanoBoost research publication.
+NanoBoost is a machine learning pipeline combining XGBoost with a novel event-specific Discrete Wavelet Transform (DWT) for nanopore translocation event classification. It achieved 91% accuracy in nanoparticle size classification (5 nm vs 10 nm nanospheres) and 99% in shape classification (nanospheres vs nanorods).
 
-## About
-
-NanoBoost is a machine learning algorithm that leverages wavelet transform techniques to enhance nanopore multiplexing capabilities. This repository provides the implementation and analysis tools used in the research.
-
-## Repository Structure
-
-This repository is organized to facilitate reproducibility and understanding of the NanoBoost methodology: 
-
-- `scripts/` - Python scripts for data processing and model training.
-
-## Getting Started
-
-### Prerequisites
-
-- Python 3.8+
-- Required packages are listed in `requirements.txt`
-
-### Installation
+## Installation
 
 ```bash
-# Clone the repository
 git clone https://github.com/joehart2001/nanoboost.git
 cd nanoboost
+pip install -e .
+```
 
-# Install dependencies
-pip install -r requirements.txt
+For unsupervised learning and plotting dependencies:
+
+```bash
+pip install -e ".[full]"
 ```
 
 ## Usage
 
-More detailed usage instructions and examples can be found in the scripts provided in the `scripts/` directory.
+### End-to-end run
+
+Edit `config.yaml` to point to your ABF files and set labels, then:
+
+```bash
+nanoboost run config.yaml
+```
+
+### Step-by-step
+
+```bash
+# 1. Isolate events from a raw ABF recording
+nanoboost preprocess recording.abf events.pkl
+
+# 2. Apply per-event DWT and extract features  (label: 5 or 10 for nm, NR or NS for shape)
+nanoboost transform events.pkl features.pkl 10
+
+# 3. Train a classifier across one or more feature sets
+nanoboost train features_5nm.pkl features_10nm.pkl --output model.pkl
+```
+
+Use `nanoboost <command> --help` for full options on any command.
+
+## Configuration
+
+`config.yaml` controls all parameters. Paper-optimal defaults are pre-set:
+
+```yaml
+data:
+  files:
+    - path: recordings/5nm.abf
+      label: 5
+    - path: recordings/10nm.abf
+      label: 10
+  output_dir: results/
+
+preprocessing:
+  resistive: false      # true for biphasic events with a resistive (trough) component
+
+transform:
+  wavelet: bior3.3      # paper-optimal mother wavelet
+  threshold: 0.2        # paper-optimal DWT coefficient threshold
+
+training:
+  model: xgboost        # xgboost | rf | svm | dt
+  search: random        # random | bayes | sobol | grid
+```
+
+CLI flags override config values for individual commands:
+
+```bash
+nanoboost transform events.pkl features.pkl 10 --wavelet haar --threshold 0.3
+nanoboost train features.pkl --model rf --search bayes
+```
 
 ## Citation
 
@@ -55,8 +94,4 @@ For the complete citation information, see [CITATION.cff](CITATION.cff).
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Contact
-
-For questions or feedback, please open an issue on GitHub.
+MIT — see [LICENSE](LICENSE).

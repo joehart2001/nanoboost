@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 from scipy.stats import skew, kurtosis
+from tqdm import tqdm
 from nanoboost.scripts.feature_extraction.feature_extraction_utils import find_dwell_time_FWHM, resistive_conductive_area, decay_const, derivative_features, calculate_entropy, find_no_peaks_DNA, coeff_features
 
 def find_features(event_time, event_data, mean_noise, coeffs, upper_threshold, lower_threshold = -np.inf, small_resistive = False, whole_run = False, DNA = False):
@@ -33,7 +34,7 @@ def find_features(event_time, event_data, mean_noise, coeffs, upper_threshold, l
 
     count = 0
     
-    for event, time in zip(event_data, event_time):
+    for event, time in tqdm(zip(event_data, event_time), total=len(event_data), desc="features", unit="event", leave=False):
         event_type = None
             
         # classify event as just conductive or conductive and resistive

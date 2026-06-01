@@ -1,0 +1,21 @@
+# NanoBoost pipeline configuration
+# Paper-optimal settings: bior3.3 wavelet, threshold 0.2, XGBoost + random search
+
+data:
+  files:
+    - path: recordings/5nm.abf
+      label: 5
+    - path: recordings/10nm.abf
+      label: 10
+  output_dir: results/
+
+preprocessing:
+  resistive: false      # true for biphasic events with a resistive (trough) component
+
+transform:
+  wavelet: bior3.3      # paper-optimal mother wavelet
+  threshold: 0.2        # paper-optimal DWT coefficient threshold
+
+training:
+  model: xgboost        # xgboost | rf | svm | dt
+  search: random        # random | bayes | sobol | grid
