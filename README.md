@@ -68,8 +68,8 @@ preprocessing:
   resistive: false      # true for biphasic events with a resistive (trough) component
 
 transform:
-  wavelet: bior3.3      # paper-optimal mother wavelet
-  threshold: 0.2        # paper-optimal DWT coefficient threshold
+  wavelet: bior3.3
+  threshold: 0.2
 
 training:
   model: xgboost        # xgboost | rf | svm | dt
