@@ -2,7 +2,7 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17517843.svg)](https://doi.org/10.5281/zenodo.17517843)
 
-**A Wavelet Transform-Enhanced Machine Learning Algorithm for Next-Generation Nanopore Multiplexing**
+**A wavelet transform-enhanced machine learning algorithm for nanopore sensing**
 
 NanoBoost is a machine learning pipeline combining XGBoost with a novel event-specific Discrete Wavelet Transform (DWT) for nanopore translocation event classification. It achieved 91% accuracy in nanoparticle size classification (5 nm vs 10 nm nanospheres) and 99% in shape classification (nanospheres vs nanorods).
 

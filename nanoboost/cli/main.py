@@ -11,7 +11,7 @@ from rich.text import Text
 
 _console = Console()
 
-app = typer.Typer(help="NanoBoost: wavelet-enhanced ML pipeline for nanopore sensing.")
+app = typer.Typer(help="NanoBoost: a wavelet transform-enhanced machine learning algorithm for nanopore sensing.")
 
 _MODEL_MAP = {"xgboost": "XG", "rf": "RF", "svm": "SVM", "dt": "DT"}
 
