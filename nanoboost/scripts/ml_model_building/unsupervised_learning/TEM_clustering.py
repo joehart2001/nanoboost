@@ -4,6 +4,9 @@ from skimage import io, filters, measure, morphology, color
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
+from rich.console import Console
+
+_console = Console()
 
 # Step 1: Convert the image to grayscale
 TEM_image_path = 'nanorod_TEM.png'
@@ -23,7 +26,7 @@ opened_image = morphology.binary_opening(binary_image, morphology.disk(1))
 
 # Step 4: Label the image to identify individual objects (rods)
 labeled_image, num_labels = measure.label(opened_image, return_num=True, connectivity=2)
-print(f"Identified {num_labels} objects.")
+_console.print(f"[green]✓[/green] Identified [bold]{num_labels}[/bold] objects")
 
 # Initialize an RGB image with the same dimensions as labeled_image, filled with black (background)
 rgb_image = np.zeros((*labeled_image.shape, 3), dtype=np.uint8)

@@ -10,6 +10,12 @@ from imblearn.over_sampling import SMOTE
 from sklearn.model_selection import RandomizedSearchCV, GridSearchCV
 from skopt import BayesSearchCV
 from scipy.stats import randint, expon
+from rich.console import Console
+from rich.panel import Panel
+from rich.table import Table
+from rich import box as rich_box
+
+_console = Console()
 
 def hyperparam_op(model, type, X, y, no_train_test = False):
     """
@@ -146,7 +152,12 @@ def hyperparam_op(model, type, X, y, no_train_test = False):
     average_accuracy = search.cv_results_['mean_test_score'][search.best_index_]
 
     best_params = search.best_params_
-    print(f"{model} best params using {type}:", best_params)
-    print("Average CV accuracy:",average_accuracy, "\u00B1", np.std(accuracies))
+    table = Table(box=rich_box.SIMPLE, show_header=False, padding=(0, 1))
+    table.add_column(style="dim")
+    table.add_column()
+    for k, v in best_params.items():
+        table.add_row(k, f"{v:.4f}" if isinstance(v, float) else str(v))
+    table.add_row("CV accuracy", f"[bold green]{average_accuracy:.4f}[/bold green]")
+    _console.print(Panel(table, title=f"[bold]{model}[/bold] \u00B7 {type} search", border_style="cyan"))
     
     return X_train, X_test, y_train, y_test, y_pred, search, best_params

@@ -30,6 +30,9 @@ smoothness_loss_df_norm = 1 - smoothness_df_norm
 
 
 import torch
+from rich.console import Console
+
+_console = Console()
 
 # df --> pytorch tensor
 rmse_df_norm_torch = torch.tensor(rmse_df_norm.values, dtype=torch.float32)
@@ -87,5 +90,6 @@ for _ in range(iterations):
     optimizer.step()
 
 # gamma calculted from other weights as must total to 1
-gamma = 1 - weights.detach().numpy()[0] - weights.detach().numpy()[1]
-print("Optimal weights:", weights.detach().numpy(), gamma)
+alpha_w, beta_w = weights.detach().numpy()
+gamma = 1 - alpha_w - beta_w
+_console.print(f"[bold cyan]Optimal weights[/bold cyan]  α=[bold]{alpha_w:.4f}[/bold]  β=[bold]{beta_w:.4f}[/bold]  γ=[bold]{gamma:.4f}[/bold]")

@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "nanoboost"
-version = "1.0.0"
-description = "Wavelet transform-enhanced machine learning for nanopore sensing"
+version = "0.1.0"
+description = "NanoBoost: a wavelet transform-enhanced machine learning algorithm for nanopore sensing"
 readme = "README.md"
 license = {file = "LICENSE"}
 requires-python = ">=3.8"
