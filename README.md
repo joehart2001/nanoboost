@@ -85,14 +85,15 @@ nanoboost train features.pkl --model rf --search bayes
 
 ## Citation
 
-If you use this code or methodology in your research, please cite this repository (paper details to be added upon publication). Here is a suggested BibTeX entry:
+If you use this code or methodology in your research, please cite the paper, published in [npj Biosensing](https://www.nature.com/articles/s44328-026-00105-x#citeas):
 
 ```bibtex
-@software{nanoboost,
-  author = {Hart, Joseph},
-  title = {NanoBoost: A Wavelet Transform-Enhanced Machine Learning Algorithm for Next-Generation Nanopore Multiplexing},
-  year = {2025},
-  url = {https://github.com/joehart2001/nanoboost}
+@article{hart2026nanoboost,
+  title={NanoBoost: a wavelet transform-enhanced machine learning algorithm for nanopore sensing},
+  author={Hart, Joseph and Burman, Oliver P and Villa, Javier EL and Li, Yilin and Li, Kyan and Chua, Wei Xin and Garc{\'\i}a, Isabel and Ren, Ren and Goodchild, Sarah A and Liz-Marz{\'a}n, Luis M and others},
+  journal={npj Biosensing},
+  year={2026},
+  publisher={Nature Publishing Group}
 }
 ```
 
