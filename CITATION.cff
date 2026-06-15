@@ -24,3 +24,33 @@ keywords:
   - wavelet transform
   - multiplexing
   - bioinformatics
+preferred-citation:
+  type: article
+  title: "NanoBoost: a wavelet transform-enhanced machine learning algorithm for nanopore sensing"
+  authors:
+    - family-names: Hart
+      given-names: Joseph
+    - family-names: Burman
+      given-names: Oliver P
+    - family-names: Villa
+      given-names: Javier EL
+    - family-names: Li
+      given-names: Yilin
+    - family-names: Li
+      given-names: Kyan
+    - family-names: Chua
+      given-names: Wei Xin
+    - family-names: García
+      given-names: Isabel
+    - family-names: Ren
+      given-names: Ren
+    - family-names: Goodchild
+      given-names: Sarah A
+    - family-names: Liz-Marzán
+      given-names: Luis M
+  journal: "npj Biosensing"
+  year: 2026
+  publisher:
+    name: "Nature Publishing Group"
+  doi: 10.1038/s44328-026-00105-x
+  url: "https://www.nature.com/articles/s44328-026-00105-x"
